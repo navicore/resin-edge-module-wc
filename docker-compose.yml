@@ -1,0 +1,22 @@
+version: '2'
+# todo: permission denied issues for mqtt broker - even as root
+# volumes: 
+#   mqttdata:
+services:
+  mqtt-broker:
+    build: ./mqtt-broker
+    expose:
+      - "1883"
+      - "9001"
+    privileged: true
+    restart: always
+    network_mode: host
+    # volumes: 
+    #   - "mqttdata:/mqtt/data"
+  mqtt-bridge:
+    build: ./mqtt-bridge
+    privileged: true
+    depends_on:
+      - mqtt-broker
+    restart: always
+    network_mode: host
