@@ -47,6 +47,6 @@ WORKDIR /app
 ENV DEVICE_TYPE=%%RESIN_MACHINE_NAME%%
 
 # Start application
-CMD ["bash", "/app/start.sh"]
-#CMD ["sleep", "120"]
+#CMD ["bash", "/app/start.sh"]
+CMD ["sleep", "120"]
 
