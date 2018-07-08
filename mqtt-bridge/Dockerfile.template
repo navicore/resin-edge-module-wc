@@ -47,5 +47,5 @@ ENV DEVICE_TYPE=%%RESIN_MACHINE_NAME%%
 
 # Start application
 #CMD ["bash", "/app/start.sh"]
-CMD ["bash", "sleep 120"]
+CMD ["sleep", "120"]
 
