@@ -38,6 +38,7 @@ COPY start.sh /app/start.sh
 ####################
 FROM resin/%%RESIN_MACHINE_NAME%%-openjdk
 MAINTAINER Ed Sweeney <ed@onextent.com>
+COPY --from=buildstep /app/* /app/
 COPY --from=buildstep /mqtt-bridge/target/scala-2.12/*.jar /app/
 
 WORKDIR /app
@@ -46,6 +47,6 @@ WORKDIR /app
 ENV DEVICE_TYPE=%%RESIN_MACHINE_NAME%%
 
 # Start application
-#CMD ["bash", "/app/start.sh"]
-CMD ["sleep", "120"]
+CMD ["bash", "/app/start.sh"]
+#CMD ["sleep", "120"]
 
